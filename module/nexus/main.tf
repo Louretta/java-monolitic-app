@@ -1,6 +1,6 @@
 resource "aws_instance" "nexus" {
     ami                    = var.ami
-    instance_type          = "t2.meduim"
+    instance_type          = "t2.medium"
     vpc_security_group_ids = [ var.nexus_sg]
     subnet_id              = var.subnet_id
     key_name               = var.keypair
@@ -14,7 +14,7 @@ resource "aws_instance" "nexus" {
 }
 
 resource "aws_elb" "nexus_elb"{
-    name = "nexus_elb"
+    name = "nexus-elb"
     subnets = var.elb-subnet
     security_groups = [var.nexus_sg]
     listener {
@@ -24,6 +24,7 @@ resource "aws_elb" "nexus_elb"{
       lb_protocol = "HTTPs"
       ssl_certificate_id = var.cert-arn
       
+      
     }
     health_check {
       healthy_threshold = 2
@@ -32,14 +33,14 @@ resource "aws_elb" "nexus_elb"{
       target = "TCP:8081"
       interval = 30
     }
-    instances = [aws_instance.nexus]
+    instances = ["aws_instance.nexus.id"]
     cross_zone_load_balancing = true
     idle_timeout = 400
     connection_draining = true
     connection_draining_timeout = 400
 
     tags = {
-      Name = "nexus_elb"
+      Name = "nexus-elb"
     }
 
     }

@@ -3,11 +3,11 @@ output "sonarqube_ip" {
 }
 
 output "sonarqube_elb_dns_name" {
-    value = aws_elb.sonarqube_elb.dns_name
+    value = aws_elb.sonarqube-elb.dns_name
   
 }
 
 output "sonarqube_elb_zone_id" {
-    value = aws_elb.sonarqube_elb.zone_id
+    value = aws_elb.sonarqube-elb.zone_id
   
 }
