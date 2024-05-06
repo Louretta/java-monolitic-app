@@ -1,4 +1,4 @@
-output "public_key" {
+output "public_key-id" {
     value = aws_key_pair.public-key.id
   
 }
