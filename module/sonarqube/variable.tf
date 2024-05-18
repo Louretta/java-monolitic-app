@@ -5,3 +5,6 @@ variable "name" {}
 variable "elb-subnets" {}
 variable "subnet_id" {}
 variable "cert-arn" {}
+variable "nr-key" {}
+variable "nr-acc-id" {}
+variable "nr-region" {}

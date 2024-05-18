@@ -5,3 +5,6 @@ variable "keypair" {}
 variable "name" {}
 variable "elb-subnet" {}
 variable "cert-arn" {}
+variable "nr-key" {}
+variable "nr-acc-id" {}
+variable "nr-region" {}

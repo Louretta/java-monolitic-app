@@ -1,6 +1,6 @@
 resource "aws_instance" "sonarqube" {
     ami = var.ami
-    instance_type = "t2.medium"
+    instance_type = "t3.medium"
     key_name = var.keypair
     subnet_id = var.subnet_id
     vpc_security_group_ids = [ var.sonarqube_sg ]
@@ -36,7 +36,7 @@ resource "aws_elb" "sonarqube-elb" {
       interval = 30
     }
 
-    instances = [ "aws_instance.sonarqube.id"]
+    instances = [ aws_instance.sonarqube.id]
     cross_zone_load_balancing = true
     idle_timeout = 400
     connection_draining = true

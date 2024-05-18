@@ -38,8 +38,8 @@ resource "aws_lb_listener" "prod-listener-http" {
 resource "aws_lb_listener" "prod-listener-https" {
     load_balancer_arn = aws_lb.prod-lb.arn
     port = 443
-    protocol = "HTTP"
-    ssl_policy = "ELBSecuritypolicy-2016-08"
+    protocol = "HTTPS"
+    ssl_policy = "ELBSecurityPolicy-2016-08"
     certificate_arn = var.cert-arn
     default_action {
       type = "forward"

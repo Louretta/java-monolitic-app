@@ -1,6 +1,6 @@
 resource "aws_instance" "jenkins" {
   ami                         = var.ami
-  instance_type               = "t2.medium"
+  instance_type               = "t3.medium"
   subnet_id                   = var.subnet_id
   key_name                    = var.key_name
   vpc_security_group_ids      = [var.jenkins_sg]
@@ -35,7 +35,7 @@ resource "aws_elb" "jenkins-elb" {
       interval = 30
     }
 
-    instances = [ "aws_instance.jenkins.id"]
+    instances = [ aws_instance.jenkins.id]
     cross_zone_load_balancing = true
     idle_timeout = 400
     connection_draining = true
