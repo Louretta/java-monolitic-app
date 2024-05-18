@@ -200,7 +200,7 @@ tags = {
 }
 
 #asg scurity group 
-resource "aws_security_group" "asg_sg" {
+resource "aws_security_group" "asg-sg" {
     name = "asg-sg"
     description = "asg securtity group "
     vpc_id = var.vpc_id
@@ -250,7 +250,7 @@ tags = {
 
 
 #create rds security group
-resource "aws_security_group" "rds_sg" {
+resource "aws_security_group" "rds-sg" {
     name = "rds-sg"
     description = "rds security group"
     vpc_id = var.vpc_id 
@@ -261,7 +261,7 @@ ingress {
     from_port   = 3306
     to_port     = 3306
     protocol    ="tcp"
-    security_groups =[ aws_security_group.bastion_sg, aws_security_group.asg_sg.id ]
+    security_groups =[ aws_security_group.bastion_sg.id, aws_security_group.asg-sg.id]
 }
 egress {
     from_port= 0

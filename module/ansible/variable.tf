@@ -3,3 +3,12 @@ variable "subnet_id" {}
 variable "key_name" {}
 variable "ansible_sg" {}
 variable "name" {}
+variable "staging-MyPlaybook" {}
+variable "staging-discovery-script" {}
+variable "prod-MyPlaybook" {}
+variable "prod-discovery-script" {}
+variable "private_key" {}
+variable "nexus-ip" {}
+variable "nr-key" {}
+variable "nr-acc-id" {}
+variable "nr-region" {}

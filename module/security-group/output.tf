@@ -18,10 +18,10 @@ output "jenkins_sg" {
   
 }
 output "asg_sg" {
-   value = aws_security_group.asg_sg.id
+   value = aws_security_group.asg-sg.id
   
 }
 output "rds-sg" {
-  value = aws_security_group.rds_sg
+  value = aws_security_group.rds-sg.id
   
 }

@@ -18,3 +18,8 @@ output "jenkins" {
     value = module.jenkins.jenkins_ip
   
 }
+
+# output "rds-endpoint" {
+#     value = module.rds.rds-endpoint
+  
+# }

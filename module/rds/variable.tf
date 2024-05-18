@@ -1,7 +1,7 @@
-variable "db_subnet_grp" {}
-variable "db-subnet" {}
-variable "db_subnet_grp" {}
+variable "db-subnet-grp" {}
+variable "tag-name" {}
+variable "subnet" {}
 variable "security_group_mysql_sg" {}
-variable "db_name" {}
-variable "db_username" {}
-variable "db_password" {}
+variable "db-name" {}
+variable "db-username" {}
+variable "db-password" {}

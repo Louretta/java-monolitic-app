@@ -5,3 +5,7 @@ variable "jenkins_sg" {}
 variable "name" {}
 variable "elb-subnets" {}
 variable "cert-arn" {}
+variable "nexus-ip" {}
+variable "nr-key" {}
+variable "nr-acc-id" {}
+variable "nr-region" {}

@@ -1,7 +1,7 @@
 resource "aws_launch_template" "stage-temp" {
     name = "stage-temp"
     image_id = var.ami
-    instance_type = "t2.medium"
+    instance_type = "t3.medium"
     key_name = var.key-name
     vpc_security_group_ids = [var.asg-sg]
     user_data = base64encode(templatefile("./module/stage-asg/docker-script.sh",{
