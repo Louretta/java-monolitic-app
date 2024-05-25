@@ -1,6 +1,6 @@
 locals {
-  ansible_user_data= <<-EOF
-  #!/bin/bash
+ansible_user_data= <<-EOF
+#!/bin/bash
 #Update instance and install tools (get, unzip, aws cli) 
 sudo yum update -y
 sudo yum install wget -y

@@ -1,6 +1,6 @@
 locals {
-  jenkins_user_data = <<-EOF
-  #!/bin/bash
+jenkins_user_data = <<-EOF
+#!/bin/bash
 sudo yum update -y
 sudo yum install git -y
 sudo yum install maven -y

@@ -1,5 +1,5 @@
 locals {
-    nexus_user_data = <<-EOF
+nexus_user_data = <<-EOF
 #!/bin/bash
 sudo yum update -y
 sudo yum install wget -y
