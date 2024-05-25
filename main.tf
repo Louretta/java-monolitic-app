@@ -66,8 +66,8 @@ module "sonarqube" {
     keypair = module.keypair.public_key-id
     name = "${local.name}-sonarqube"
     cert-arn = data.aws_acm_certificate.cert.arn
-    nr-acc-id = "NRAK-HPT5OJANIT515S5M7XMTIRUERKX"
-    nr-key = "4243993"
+    nr-acc-id = 4459411
+    nr-key = "NRAK-DNXE8NC150GJMRU00175ONBQOBB"
     nr-region = "EU"
 }
 
@@ -81,8 +81,8 @@ module "nexus" {
   elb-subnet =  [module.vpc.public-subnet1, module.vpc.public-subnet2,module.vpc.public-subnet3]
   name ="${local.name}-nexus"
   cert-arn = data.aws_acm_certificate.cert.arn
-  nr-acc-id = "NRAK-HPT5OJANIT515S5M7XMTIRUERKX"
-  nr-key ="4243993"
+  nr-acc-id = 4459411
+  nr-key ="NRAK-DNXE8NC150GJMRU00175ONBQOBB"
   nr-region = "EU"
 
   
@@ -101,8 +101,8 @@ module "ansible" {
   staging-MyPlaybook = "${path.root}/module/ansible/stage-playbook.yaml"
   prod-MyPlaybook = "${path.root}/module/ansible/prod-playbook.yaml"
   private_key = module.keypair.private_key_pem
-  nr-acc-id = "NRAK-HPT5OJANIT515S5M7XMTIRUERKX"
-  nr-key = "4243993"
+  nr-acc-id = 4459411
+  nr-key = "NRAK-DNXE8NC150GJMRU00175ONBQOBB"
   nr-region = "EU"
   nexus-ip = module.nexus.nexus_public_ip
 
@@ -118,8 +118,8 @@ module "jenkins" {
   elb-subnets   = [module.vpc.public-subnet1, module.vpc.public-subnet2, module.vpc.public-subnet3]
   name          = "${local.name}-jenkins"
   cert-arn      = data.aws_acm_certificate.cert.arn
-  nr-acc-id      = "NRAK-HPT5OJANIT515S5M7XMTIRUERKX"
-  nr-key         ="4243993"
+  nr-acc-id      = 4459411
+  nr-key         ="NRAK-DNXE8NC150GJMRU00175ONBQOBB"
   nr-region      ="EU"
   nexus-ip       = module.nexus.nexus_public_ip
 }
@@ -132,9 +132,9 @@ module "stage" {
   asg-stage = "${local.name}-stage-asg"
   vpc-zone-id-stage = [module.vpc.private-subnet1,module.vpc.private-subnet2,module.vpc.private-subnet3]
   nexus-stage = module.nexus.nexus_public_ip
-  nr-acc-id-stage = "NRAK-HPT5OJANIT515S5M7XMTIRUERKX"
+  nr-acc-id-stage = 4459411
   nr-region-stage = "EU"
-  nr-key-stage = "4243993"
+  nr-key-stage = "NRAK-DNXE8NC150GJMRU00175ONBQOBB"
   tg-arn = module.stage-lb.stage-tg-arn
   
 }
@@ -146,8 +146,8 @@ module "prod" {
   asg-sg = module.security_group.asg_sg
   asg-prod = "${local.name}-prod-asg"
   nexus-prd = module.nexus.nexus_public_ip
-  nr-acc-id-prd = "NRAK-HPT5OJANIT515S5M7XMTIRUERKX"
-  nr-key-prd = "4243993"
+  nr-acc-id-prd = 4459411
+  nr-key-prd = "NRAK-DNXE8NC150GJMRU00175ONBQOBB"
   nr-region-prd = "EU"
   tg-arn = module.prod-lb.prod-tg-arn
 }
@@ -172,20 +172,20 @@ module "prod-lb" {
   
 }
 
-# module "rds" {
-#   source = "./module/rds"
-#   db-subnet-grp ="db-subnet-group"
-#   subnet =[module.vpc.private-subnet1, module.vpc.private-subnet2, module.vpc.private-subnet3]
-#   security_group_mysql_sg = module.security_group.rds-sg
-#   db-name = "petclinic"
-#   db-username = data.vault_generic_secret.vault-secret.data["username"]
-#   db-password = data.vault_generic_secret.vault-secret.data["password"]
-#  tag-name ="${local.name}-rds"
+module "rds" {
+  source = "./module/rds"
+  db-subnet-grp ="db-subnet-group"
+  subnet =[module.vpc.private-subnet1, module.vpc.private-subnet2, module.vpc.private-subnet3]
+  security_group_mysql_sg = module.security_group.rds-sg
+  db-name = "petclinic"
+  db-username = data.vault_generic_secret.vault-secret.data["username"]
+  db-password = data.vault_generic_secret.vault-secret.data["password"]
+ tag-name ="${local.name}-rds"
   
   
-# }
+}
 
-# data "vault_generic_secret" "vault-secret" {
-#   path = "secret/database"
+data "vault_generic_secret" "vault-secret" {
+  path = "secret/database"
   
-# }
+}

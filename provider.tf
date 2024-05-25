@@ -4,8 +4,8 @@ provider "aws" {
 }
 
 
-# provider "vault" {
-#     token = " s.qy0dqsXaqWQmvmqpKM2r4GUd"
-#     address = "https://vault.dv-gidideals.co.uk"
+provider "vault" {
+    token = " s.N6J1yTm1kySCWTgoKIZYMxqE"
+    address = "https://vault.dv-gidideals.co.uk"
   
-# }
+}

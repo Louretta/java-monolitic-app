@@ -19,7 +19,7 @@ output "jenkins" {
   
 }
 
-# output "rds-endpoint" {
-#     value = module.rds.rds-endpoint
+output "rds-endpoint" {
+    value = module.rds.rds-endpoint
   
-# }
+}
