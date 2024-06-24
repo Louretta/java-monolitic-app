@@ -1,8 +1,7 @@
 PET CLINIC PROJECT
 
 Project work flow 
-![archi-](https://github.com/Louretta/career-project/assets/124626623/aca5d3a0-3c99-46b8-9efa-5cfd776e56c7)
-
+C:\Users\Home\OneDrive\Desktop\Archetechural diagram.jpeg
 
 
 
