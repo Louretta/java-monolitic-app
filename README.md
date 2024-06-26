@@ -1,4 +1,4 @@
-PET CLINIC PROJECT
+
 
 Project work flow 
 
@@ -6,7 +6,7 @@ Project work flow
 
 
 
-
+This project involves deploying a Java enterprise application in a containerized
 High Availability and Scalability:
 To achieve high availability and scalability, the application is deployed across multiple AWS Availability Zones. This setup ensures data replication and failover capabilities in case of a zone-level failure. An Auto Scaling group is configured to automatically scale the application instances based on incoming traffic, ensuring optimal resource utilization and responsiveness.
 An Elastic Load Balancer (ELB) distributes incoming traffic across multiple instances, providing load balancing and fault tolerance. 
